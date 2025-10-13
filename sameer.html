@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Conditional comment for Internet Explorer 8 and below -->
+    <!--[if lte IE 8]>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <![endif]-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My First WebPage by Sameer</title>
+  
+</head>
+
+<body>
+    <style>
+         body {
+  background-color: gainsboro;
+}
+    </style>
+    <header>
+        <h1>Welcome to My Website</h1>
+        <img src="Download.jpg" alt="Website Logo" width="150" height="150">
+        <p>This is the introductory information at the top of the page.</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="home">
+            <h2>Main Content Heading</h2>
+            <p>This is a paragraph describing the main content of the page. Here's some important text highlighted: <mark>This is highlighted!</mark></p>
+            
+                <!-- This section was updated for dynamic current date/time display.
+                 - Original: Static <time> with hardcoded values.
+                 - New: Uses <span> and <time> with JavaScript to show real-time local date/time.
+                 - Fallback text "Loading..." shows until JS runs.
+                 - To customize: Edit the <p> text or ID attributes if needed.
+                 - If you want to revert to static, replace with: <time datetime="2023-10-05T14:30:00">October 5, 2023, 2:30 PM</time> -->
+                 <p>The current date and time is: <span id="currentTime"><time id="dynamicTime" datetime="">Loading...</time></span>.</p>
+                 <!-- CHANGE END: Date/Time Display Section -->
+            
+            <canvas id="myCanvas" width="200" height="100" style="border:1px solid #000000;">
+                Your browser does not support the HTML canvas tag.
+            </canvas>
+            
+            <audio controls>
+                <source src="bado badi.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+            
+            <video width="320" height="240" controls>
+                <source src="bado badi mp4.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            
+            <form action="/submit" method="post">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <br>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <br>
+                <input type="submit" value="Submit">
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 My First WebPage. All rights reserved.</p>
+    </footer>
+    <script>
+        // JavaScript to draw a blue background on the canvas
+        window.addEventListener('load', function() {
+            var canvas = document.getElementById('myCanvas');
+            var ctx = canvas.getContext('2d');
+            ctx.fillStyle = 'blue';  // Set the fill color to blue
+            ctx.fillRect(0, 0, canvas.width, canvas.height);  // Fill the entire canvas with blue
+        });
+    </script>
+</body>
+</html>
