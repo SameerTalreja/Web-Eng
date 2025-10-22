@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Enrollment Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <img src="download.jpg" alt="NUST Balochistan Campus Logo" class="logo">
+        <h1>Department of Computer Science</h1>
+        <h2>Course Registration Form</h2>
+    </header>
+
+    <main>
+        <form>
+            <fieldset>
+                <legend>Student Information</legend>
+                <label for="fname">First Name *</label>
+                <input type="text" id="fname" name="fname" required>
+
+                <label for="lname">Last Name *</label>
+                <input type="text" id="lname" name="lname" required>
+
+                <label for="sid">Student ID *</label>
+                <input type="text" id="sid" name="sid" pattern="[A-Za-z0-9]+" required>
+
+                <label for="program">Program / Department *</label>
+                <select id="program" name="program" required>
+                    <optgroup label="Undergraduate">
+                        <option>BS Computer Science</option>
+                        <option>BS Artificial Intelligence</option>
+                               <option>BS Civil Engineering</option>
+                    </optgroup>
+                    <optgroup label="Graduate">
+                        <option>MS Computer Science</option>
+                        <option>MS Minning</option>
+                    </optgroup>
+                </select>
+
+                <label for="year">Year / Semester *</label>
+                <select id="year" name="year" required>
+                    <option>1st Year / 1st Semester</option>
+                    <option>1st Year / 2nd Semester</option>
+                    <option>2nd Year / 3rd Semester</option>
+                    <option>2nd Year / 4th Semester</option>
+                    <option>3rd Year / 5th Semester</option>
+                    <option>3rd Year / 6th Semester</option>
+                    <option>4th Year / 7th Semester</option>
+                    <option>4th Year / 8th Semester</option>
+                </select>
+
+                <label for="dob">Date of Birth *</label>
+                <input type="date" id="dob" name="dob" required>
+
+                <fieldset>
+                    <legend>Gender *</legend>
+                    <label><input type="radio" name="gender" value="male" required> Male</label>
+                    <label><input type="radio" name="gender" value="female" required> Female</label>
+                </fieldset>
+
+                <label for="email">Email *</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="phone">Phone *</label>
+                <input type="tel" id="phone" name="phone" required>
+
+                <label for="address">Address *</label>
+                <textarea id="address" name="address" rows="3" required></textarea>
+
+                <fieldset>
+                    <legend>Enrollment Type *</legend>
+                    <label><input type="radio" name="enrollment" value="full-time" required> Full-time</label>
+                    <label><input type="radio" name="enrollment" value="part-time" required> Part-time</label>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Courses to Register *</legend>
+                    <label><input type="checkbox" name="course" value="AI"> Artificial Intelligence</label>
+                    <label><input type="checkbox" name="course" value="DB"> Database Systems</label>
+                    <label><input type="checkbox" name="course" value="CN"> Computer Networks</label>
+                    <label><input type="checkbox" name="course" value="WD"> Web Development</label>
+                </fieldset>
+
+                <label for="campus">Preferred Campus *</label>
+                <input list="campus" id="preferred" name="campus" placeholder="Select campus..." required>
+                <datalist id="campus">
+                    <option value="Main Campus">
+                    <option value="NUST Balochistan Campus">
+                </datalist>
+
+                <label for="photo">Profile Photo *</label>
+                <input type="file" id="photo" name="photo" accept="image/*" required>
+
+                <label for="password">Password *</label>
+                <input type="password" id="password" name="password" pattern=".{6,}" placeholder="Minimum 6 characters" required>
+
+                <label for="confirm">Confirm Password *</label>
+                <input type="password" id="confirm" name="confirm" required>
+
+                <label><input type="checkbox" required> I agree to the terms and conditions</label>
+
+                <div class="buttons">
+                    <button type="submit">Submit</button>
+                    <button type="reset">Reset</button>
+                </div>
+            </fieldset>
+        </form>
+    </main>
+</body>
+</html>
