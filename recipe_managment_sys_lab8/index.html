@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Recipe Manager</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="title">
+      <div class="logo">🍳</div>
+      <div>
+        <div class="appname">Recipe Manager</div>
+        <div class="hint">Add • View • Edit • Delete (saved in your browser)</div>
+      </div>
+    </div>
+    <div class="controls">
+      <button id="toggleForm" class="btn btn-secondary" title="Show/Hide form">➕ New Recipe</button>
+      <button id="clearAll" class="btn btn-warn" title="Delete everything">Clear All</button>
+    </div>
+  </header>
+
+  <main>
+ 
+    <section class="card" id="formCard">
+      <div class="card-h">
+        <strong>Create / Edit Recipe</strong>
+        <span class="hint" id="formMode">Mode: Create</span>
+      </div>
+      <div class="card-c">
+        <form id="recipeForm" novalidate>
+          <input type="hidden" id="recipeId" />
+
+          <label for="title">Title *</label>
+          <input id="title" type="text" required minlength="3" placeholder="e.g., Creamy Chicken Pasta" />
+          <div class="hint error" id="titleError"></div>
+
+          <div class="row">
+            <div>
+              <label for="ingredients">Ingredients * <span class="hint">(one per line)</span></label>
+              <textarea id="ingredients" required placeholder="2 cups flour
+1 tsp salt
+..."></textarea>
+              <div class="hint error" id="ingredientsError"></div>
+            </div>
+            <div>
+              <label for="instructions">Instructions *</label>
+              <textarea id="instructions" required placeholder="Step 1: ...
+Step 2: ..."></textarea>
+              <div class="hint error" id="instructionsError"></div>
+            </div>
+          </div>
+
+          <label>Image (optional)</label>
+          <div id="drop" class="upload" tabindex="0" aria-label="Image uploader">
+            <img id="preview" alt="preview" src="" style="display:none" />
+            <div class="meta">
+              <div><strong>Drop an image here</strong> or <label for="image" class="btn btn-secondary small">Browse</label></div>
+              <div class="hint">PNG/JPG up to ~2MB. If empty, a placeholder is used.</div>
+            </div>
+            <input id="image" type="file" accept="image/*" />
+          </div>
+
+          <div class="btn-row">
+            <button type="submit" class="btn btn-accent" id="saveBtn">Save Recipe</button>
+            <button type="button" class="btn btn-secondary" id="resetBtn">Reset</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- List Panel -->
+    <section class="card">
+      <div class="card-h">
+        <strong>Recipes</strong>
+        <div class="search">
+          <input id="q" type="text" placeholder="Search by title or ingredient..." />
+          <button id="seed" class="btn btn-secondary" title="Add sample data">Seed Samples</button>
+        </div>
+      </div>
+      <div class="card-c">
+        <div id="recipes" class="grid"></div>
+        <div id="emptyState" class="empty" style="display:none">No recipes yet. Add one from the form.</div>
+      </div>
+    </section>
+  </main>
+
+  <!-- View Modal -->
+  <dialog id="viewModal">
+    <div class="modal-h">
+      <strong id="viewTitle">Recipe</strong>
+      <button class="btn btn-secondary" id="closeView">Close</button>
+    </div>
+    <div class="modal-c" id="viewContent"></div>
+    <div class="modal-f">
+      <button class="btn btn-accent" id="viewEdit">Edit</button>
+      <button class="btn btn-danger" id="viewDelete">Delete</button>
+    </div>
+  </dialog>
+
+  <script src="app.js"></script>
+</body>
+</html>
